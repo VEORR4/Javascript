@@ -1,36 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-     <script src="script.js" defer></script>
-     <link rel="stylesheet" type="text/css" href="style.css"/>
-     <head>
-          <meta charset="UTF-8"/>
-          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-          <title>Prize Draw</title>
-     </head>
-    
-     <body>
-          <div class="bar"> 
-               <input type="text" placeholder="Names to draw" id="participantes">
-               <button id="insert">Insert</button>
-               <button id="Draw">Draw</button>
-          </div>
-          <div class="information">
-               <div class="tooltip" style="display: none;">
-                    <p>Atenção! Ao adicionar<br>mais de um nome por<br>vez, separá-los por ' ; '</p>
-               </div>
-          </div>
-          <table>
-               <thead>
-                    <tr>
-                         <td>Número</td>
-                         <td>Nome</td>
-                    </tr>
-               </thead>
-               <tbody>
-                    
-               </tbody>
-
-          
-          </table>
-     </body>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Prize Draw</title>
+        <script src="script.js" defer></script>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+    </head>
+    <body>
+     
+     <h1>PrizeDraw</h1>
+        
+        <div class="bar"> 
+          <input type="text" placeholder="Names to draw" id="participantes">
+            
+          <button id="insert"><?xml version="1.0" encoding="utf-8"?><svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M20 18L17 18M17 18L14 18M17 18V15M17 18V21M11 21H4C4 17.134 7.13401 14 11 14C11.695 14 12.3663 14.1013 13 14.2899M15 7C15 9.20914 13.2091 11 11 11C8.79086 11 7 9.20914 7 7C7 4.79086 8.79086 3 11 3C13.2091 3 15 4.79086 15 7Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Add
+          </button>
+            
+          <button id="draw"><svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 21H16M12 21V17C9.23858 17 7 14.7614 7 12V4H17V12C17 13.1256 16.6281 14.1643 16.0004 15M17 6H18.5C19.8807 6 21 7.11929 21 8.5C21 9.88071 19.8807 11 18.5 11H17M7 11H5.5C4.11929 11 3 9.88071 3 8.5C3 7.11929 4.11929 6 5.5 6H7" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Draw
+          </button>
+        </div>
+        <div class="information">
+            <div class="tooltip" style="display: none;">
+                <p>Atenção! Ao adicionar mais de um nome por vez, separá-los por ponto e vírgula. ( ; )</p>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <td class="colunas">ID</td>
+                    <td class="colunas">Name</td>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div id="winners">
+            <h2>Winners</h2>
+            <ul id="winners-list"></ul>
+        </div>
+    </body>
 </html>
+

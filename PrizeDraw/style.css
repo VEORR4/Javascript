@@ -10,6 +10,8 @@ body{
      flex-direction: column;
      align-items: center;
      gap: 25px;
+     background-color: rgb(233, 233, 233);
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 body * {
@@ -17,42 +19,35 @@ body * {
 }
 
 .bar {
-     padding: 10px;
+     padding: 2px;
      display: flex;
      align-items: center;
-     gap: 50px;
-     border-radius: 15px;
+     gap: 5px;
+     border-radius: 30px;
      height: 50px;
      width: 80%;
-     background-color: rgb(211, 211, 211);
+     background-color: rgb(155, 155, 155);
 }
 
 input{
      height: 40px;
-     width: 700px;
+     align-self: flex-start;
      border: none;
-     border-radius: 15px;
+     border-radius: 30px;
+     flex: 2;
+     max-width: 75%;
+     text-align: center;
 }
-
-.line{
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     background-color: white;
-     height: 30px;
-     width: 200px;
-}
-
 
 .tooltip{
-     font-family:Arial, Helvetica, sans-serif;
      opacity: 70%;
-     border-radius: 20px;
-     position: absolute;
+     border-radius: 5px;
+     position: relative;
      background-color: #a7a7a7;
      border: 1px solid #ccc;
      padding: 10px;
      display: none;
+     font-weight: 750;
 }
 
 table{
@@ -63,8 +58,39 @@ table{
 }
 
 th, td{
-     border: 1px solid #ccc;
+     border: 1px solid #a8a8a8;
      padding: 5px;
      width: 400px;
 } 
+
+.colunas{
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     background-color: rgb(152, 152, 223);
+     text-align: center;
+     border-radius: 12px 12px 0px 0px;
+     border: none;
+     font-size: 25px;
+     
+}
+
+button{
+     display: flex;
+     flex-direction: row;
+     height: 40px;
+     align-items: center;
+     background-color: rgb(152, 152, 223);
+     border: none;
+     border-radius: 20px;
+     cursor: pointer;
+     justify-content: center;
+     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;;
+     padding: 15px;
+}
+
+button:hover{
+     background-color: rgb(181, 181, 219);
+     
+}
+
+
 
