@@ -63,14 +63,22 @@ th, td{
      width: 400px;
 } 
 
-.colunas{
+.colunaId{
      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-     background-color: rgb(152, 152, 223);
+     background-color: rgb(162, 162, 247);
      text-align: center;
      border-radius: 12px 12px 0px 0px;
      border: none;
-     font-size: 25px;
-     
+     font-size: 20px;  
+     width: 10%;
+}
+.colunaName{
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     background-color: rgb(162, 162, 247);
+     text-align: center;
+     border-radius: 12px 12px 0px 0px;
+     border: none;
+     font-size: 25px;  
 }
 
 button{
@@ -88,7 +96,7 @@ button{
 }
 
 button:hover{
-     background-color: rgb(181, 181, 219);
+     background-color: rgb(128, 128, 252);
      
 }
 
