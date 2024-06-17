@@ -60,7 +60,7 @@ draw.addEventListener("click", function () {
           }
           winnersList.innerHTML = ""
           winners.forEach((winner, index) => {
-               var li = document.createElement("li")
+               var li = document.createElement("dialog")
                li.append(`${index + 1}. ${winner}`)
                winnersList.appendChild(li)
           })
