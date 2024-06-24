@@ -25,8 +25,19 @@ body * {
      gap: 5px;
      border-radius: 30px;
      height: 50px;
-     width: 46%;
-     background-color: rgb(155, 155, 155);
+     width: 80%;
+     background-color: rgb(68, 68, 68);
+}
+
+#buttons{
+     display: flex;
+     gap: 5px;
+     position: relative;
+     align-items: center;
+     flex: 0.5;
+     justify-content: center;
+     text-align: center;
+     border-radius: 30px;
 }
 
 input{
@@ -34,8 +45,7 @@ input{
      align-self: flex-start;
      border: none;
      border-radius: 30px;
-     flex: 2;
-     max-width: 75%;
+     width: 85%;
      text-align: center;
 }
 
@@ -44,10 +54,11 @@ input{
      border-radius: 5px;
      position: relative;
      background-color: #a7a7a7;
-     border: 1px solid #ccc;
+     border: 1px solid #646464;
      padding: 10px;
      display: none;
      font-weight: 750;
+     text-shadow: #646464;
 }
 
 table{
