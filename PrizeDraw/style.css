@@ -1,10 +1,10 @@
-*{
+* {
      margin: 0;
      padding: 0;
      box-sizing: border-box;
 }
 
-body{
+body {
      height: 100vh;
      display: flex;
      flex-direction: column;
@@ -29,7 +29,7 @@ body * {
      background-color: rgb(68, 68, 68);
 }
 
-#buttons{
+#buttons {
      display: flex;
      gap: 5px;
      position: relative;
@@ -40,16 +40,33 @@ body * {
      border-radius: 30px;
 }
 
-input{
+/* Estilo para o botão de exclusão */
+.delete-button {
+    background-color: rgb(233, 67, 67);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    
+}
+
+.delete-button:hover {
+    background-color: rgb(209, 43, 43);
+}
+
+
+input {
      height: 40px;
      align-self: flex-start;
      border: none;
      border-radius: 30px;
      width: 85%;
      text-align: center;
+     justify-content: center;
 }
 
-.tooltip{
+.tooltip {
      opacity: 70%;
      border-radius: 5px;
      position: relative;
@@ -61,38 +78,39 @@ input{
      text-shadow: #646464;
 }
 
-table{
-     
+table {
      border-collapse: collapse;
      width: 80%;
      justify-content: center;
 }
 
-th, td{
+th,
+td {
      border: 1px solid #a8a8a8;
      padding: 5px;
      width: 400px;
-} 
+}
 
-.colunaId{
+.colunaId {
      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
      background-color: rgb(162, 162, 247);
      text-align: center;
      border-radius: 12px 12px 0px 0px;
      border: none;
-     font-size: 20px;  
+     font-size: 20px;
      width: 10%;
 }
-.colunaName{
+
+.colunaName {
      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
      background-color: rgb(162, 162, 247);
      text-align: center;
      border-radius: 12px 12px 0px 0px;
      border: none;
-     font-size: 25px;  
+     font-size: 25px;
 }
 
-button{
+button {
      display: flex;
      flex-direction: row;
      height: 40px;
@@ -102,22 +120,45 @@ button{
      border-radius: 20px;
      cursor: pointer;
      justify-content: center;
-     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;;
+     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
      padding: 15px;
 }
 
-button:hover{
+button:hover {
      background-color: rgb(128, 128, 252);
-     
 }
 
-#winners{
-     width: 400px;
-     height: 300px;
-     background-color: #ca6868;
-     border-radius: 5px;
+.modal {
+     position: fixed;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     background-color: white;
+     border: 2px solid #888;
+     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+     z-index: 1000;
+     width: 80%;
+     max-width: 500px;
      padding: 20px;
+     border-radius: 10px;
+     display: none;
 }
 
+.modal .content {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 15px;
+}
 
+#close-modal {
+     background-color: rgb(152, 152, 223);
+     border: none;
+     border-radius: 20px;
+     cursor: pointer;
+     padding: 10px 20px;
+}
 
+#close-modal:hover {
+     background-color: rgb(128, 128, 252);
+}

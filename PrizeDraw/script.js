@@ -1,103 +1,107 @@
-var adicionar = document.getElementById("participantes") //input
-var add = document.getElementById("add") //Botão add
-var draw = document.getElementById("draw") //Botão draw
-var tabela = document.querySelector("table tbody") //tabela
-const information = document.querySelector(".information") //Div da tooltip
-const tooltip = document.querySelector(".tooltip") //tooltip
+var adicionar = document.getElementById("participantes") // input
+var add = document.getElementById("add") // Botão add
+var draw = document.getElementById("draw") // Botão draw
+var tabela = document.querySelector("table tbody") // tabela
+const information = document.querySelector(".information") // Div da tooltip
+const tooltip = document.querySelector(".tooltip") // tooltip
 var winnersList = document.getElementById("winners-list") // Lista de vencedores
+var closeModalBtn = document.getElementById("close-modal") // Botão de fechar modal
+
 
 // Função para exibir participantes na tabela
-// function exibirParticipantes() {
-//      tabela.innerHTML = "" // Limpar tabela
-//      var participantesSalvos = localStorage.getItem("participantes")
-//      if (participantesSalvos) {
-//           var participantes = participantesSalvos.split(",")
-//           participantes.forEach((p, index) => {
-//                var linha = tabela.insertRow()
-//                var numero = linha.insertCell()
-//                var nome = linha.insertCell()
-//                numero.append(index + 1)
-//                nome.append(p)
-//           })
-//      }
-// }
+function exibirParticipantes() {
+     tabela.innerHTML = "" // Limpar tabela
+     var participantesSalvos = localStorage.getItem("participantes")
+     if (participantesSalvos) {
+          var participantes = participantesSalvos.split(",")
+          participantes.forEach((p, index) => {
+               var linha = tabela.insertRow()
+               var numero = linha.insertCell()
+               var nome = linha.insertCell()
+               var acao = linha.insertCell()
 
-// Insere os valores do input na tabela e salva no localStorage
-add.addEventListener("click", function () { 
-     if (adicionar.value == "") {
-          alert("O campo não pode estar vazio")
-     } else {
-          let participantesNome = adicionar.value.split(";")
-          let participantesAtuais = localStorage.getItem("participantes")
-          if (participantesAtuais) {
-               participantesNome = participantesAtuais
-                    .split(",")
-                    .concat(participantesNome)
-          }
-          localStorage.setItem("participantes", participantesNome.join(","))
-          adicionar.value = ""
-          exibirParticipantes()
-     }
-})
+               numero.append(index + 1)
+               nome.append(p)
 
+               // Adicionar botão de exclusão
+               var deleteButton = document.createElement("button")
+               deleteButton.innerHTML = "x"
 
-draw.addEventListener('click', alert("dalisensa"))
-
-const switchModal = () => {
-     const modal = document.querySelector(".modal")
-     const actualStyle = modal.style.display
-     if (actualStyle == "block") {
-          modal.style.display = "none"
-     } else {
-          modal.style.display = "block"
+               deleteButton.classList.add("delete-button")
+               deleteButton.onclick = function () {
+                    excluirParticipante(index)
+               }
+               acao.appendChild(deleteButton)
+          })
      }
 }
 
+// Função para adicionar participantes
+function adicionarParticipantes() {
+     var participantes = adicionar.value.split(";")
+     var participantesSalvos = localStorage.getItem("participantes")
+     if (participantesSalvos) {
+          participantes = participantesSalvos.split(",").concat(participantes)
+     }
+     // Converter para letras maiúsculas e remover espaços extras
+     participantes = participantes.map((p) => p.trim().toUpperCase())
+     localStorage.setItem("participantes", participantes.join(","))
+     adicionar.value = ""
+     exibirParticipantes()
+}
 
-// Função para sortear 20 vencedores
-// draw.addEventListener("click", function () {
-//      var participantesSalvos = localStorage.getItem("participantes")
-//      if (participantesSalvos) {
-//           var participantes = participantesSalvos.split(",")
-//           if (participantes.length < 20) {
-//                alert(
-//                     "Não há participantes suficientes para sortear 20 vencedores."
-//                )
-//                return
-//           }
-//           var winners = []
-//           while (winners.length < 20) {
-//                var index = Math.floor(Math.random() * participantes.length)
-//                if (!winners.includes(participantes[index])) {
-//                     winners.push(participantes[index])
-//                }
-//           }
-//           winnersList.innerHTML = ""
-//           winners.forEach((winner, index) => {
-//                var li = document.createElement("dialog")
-//                li.append(`${index + 1}. ${winner}`)
-//                winnersList.appendChild(li)
-//           })
-//      } else {
-//           alert("Nenhum participante encontrado.")
-//      }
-// })
+// Função para realizar o sorteio
+function sortear() {
+     var participantesSalvos = localStorage.getItem("participantes")
+     if (participantesSalvos) {
+          var participantes = participantesSalvos.split(",")
+          var sorteados = []
+          while (sorteados.length < 20 && participantes.length > 0) {
+               var index = Math.floor(Math.random() * participantes.length)
+               var sorteado = participantes.splice(index, 1)[0]
+               if (!sorteados.includes(sorteado)){
+                    sorteados.push(sorteado)
+               }
+          }
+          winnersList.innerHTML = ""
+          sorteados.forEach((w) => {
+               var li = document.createElement("li")
+               li.textContent = w
+               winnersList.appendChild(li)
+          })
+          document.querySelector(".modal").style.display = "block"
+     }
+}
 
+// Função para fechar o modal
+function fecharModal() {
+     document.querySelector(".modal").style.display = "none"
+}
 
+// Função para excluir participante
+function excluirParticipante(index) {
+     var participantesSalvos = localStorage.getItem("participantes")
+     if (participantesSalvos) {
+          var participantes = participantesSalvos.split(",")
+          participantes.splice(index, 1)
+          localStorage.setItem("participantes", participantes.join(","))
+          exibirParticipantes()
+     }
+}
 
+// Adicionar evento de clique aos botões
+add.addEventListener("click", adicionarParticipantes)
+draw.addEventListener("click", sortear)
+closeModalBtn.addEventListener("click", fecharModal)
 
-
-// Exibe os participantes ao carregar a página
-window.addEventListener("load", exibirParticipantes)
-
-
-// Mostra e oculta a tooltip com base na atividade do mouse
+// Exibir tooltip ao passar o mouse sobre o input
 adicionar.addEventListener("mouseover", () => {
      tooltip.style.display = "block"
 })
+
 adicionar.addEventListener("mouseout", () => {
      tooltip.style.display = "none"
 })
-adicionar.addEventListener("click", () => {
-     tooltip.style.display = "none"
-})
+
+// Inicializar a tabela com participantes salvos
+exibirParticipantes()
