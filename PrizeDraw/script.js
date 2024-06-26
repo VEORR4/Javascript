@@ -1,6 +1,7 @@
 var adicionar = document.getElementById("participantes") // input
 var add = document.getElementById("add") // Botão add
 var draw = document.getElementById("draw") // Botão draw
+var clear = document.getElementById("clear") //Botão clear
 var tabela = document.querySelector("table tbody") // tabela
 const information = document.querySelector(".information") // Div da tooltip
 const tooltip = document.querySelector(".tooltip") // tooltip
@@ -59,7 +60,8 @@ function sortear() {
           while (sorteados.length < 20 && participantes.length > 0) {
                var index = Math.floor(Math.random() * participantes.length)
                var sorteado = participantes.splice(index, 1)[0]
-               if (!sorteados.includes(sorteado)){
+               if (adicionar.value = sorteado){
+                    alert(adicionar.value)
                     sorteados.push(sorteado)
                }
           }
@@ -73,12 +75,18 @@ function sortear() {
      }
 }
 
+//Função para limpar a tabela
+clear.addEventListener("click", limparTabela)
+alert(participantes.value)
+
 // Função para fechar o modal
 function fecharModal() {
      document.querySelector(".modal").style.display = "none"
 }
 
 // Função para excluir participante
+clear.addEventListener("click", excluirParticipante)
+
 function excluirParticipante(index) {
      var participantesSalvos = localStorage.getItem("participantes")
      if (participantesSalvos) {
@@ -97,6 +105,10 @@ closeModalBtn.addEventListener("click", fecharModal)
 // Exibir tooltip ao passar o mouse sobre o input
 adicionar.addEventListener("mouseover", () => {
      tooltip.style.display = "block"
+})
+
+adicionar.addEventListener("click", () => {
+     tooltip.style.display = "none"
 })
 
 adicionar.addEventListener("mouseout", () => {

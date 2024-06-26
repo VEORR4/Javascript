@@ -5,7 +5,7 @@
 }
 
 body {
-     height: 100vh;
+     height: auto;
      display: flex;
      flex-direction: column;
      align-items: center;
@@ -24,9 +24,10 @@ body * {
      align-items: center;
      gap: 5px;
      border-radius: 30px;
-     height: 50px;
+     height: 44px;
      width: 80%;
      background-color: rgb(68, 68, 68);
+     justify-content: center;
 }
 
 #buttons {
@@ -58,7 +59,6 @@ body * {
 
 input {
      height: 40px;
-     align-self: flex-start;
      border: none;
      border-radius: 30px;
      width: 85%;
