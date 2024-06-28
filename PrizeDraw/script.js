@@ -61,7 +61,7 @@ function sortear() {
                var index = Math.floor(Math.random() * participantes.length)
                var sorteado = participantes.splice(index, 1)[0]
                if (adicionar.value = sorteado){
-                    alert(adicionar.value)
+               //      alert(adicionar.value)
                     sorteados.push(sorteado)
                }
           }
@@ -75,9 +75,6 @@ function sortear() {
      }
 }
 
-//Função para limpar a tabela
-clear.addEventListener("click", limparTabela)
-alert(participantes.value)
 
 // Função para fechar o modal
 function fecharModal() {
